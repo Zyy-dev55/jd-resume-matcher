@@ -1,0 +1,45 @@
+{
+  "_说明": "本文件既是默认配置，也是自定义模板：仓库只提交这一份，程序在缺少 config.json 时会自动读它。所有 api_key 均为空，不含任何密钥；请在环境变量里设置 Key（本项目专用 JDMATCH_<NAME>_KEY，或各家官方变量 ZHIPU_API_KEY / DASHSCOPE_API_KEY / SILICONFLOW_API_KEY / DEEPSEEK_API_KEY / OPENAI_API_KEY），也可用 api_key_env 指定任意变量名。providers 数组顺序就是失败降级顺序；local=true 表示本地端点无需 Key；disabled=true 的服务商会被跳过。需要改端口或模型名时，复制为 config.json 再改（该文件已被 .gitignore 忽略，不会误提交）。详见 接入大模型指南.md。",
+  "timeout": 20,
+  "temperature": 0.1,
+  "providers": [
+    {
+      "name": "zhipu",
+      "base_url": "https://open.bigmodel.cn/api/paas/v4",
+      "model": "glm-4-flash",
+      "api_key": ""
+    },
+    {
+      "name": "siliconflow",
+      "base_url": "https://api.siliconflow.cn/v1",
+      "model": "Qwen/Qwen2.5-7B-Instruct",
+      "api_key": ""
+    },
+    {
+      "name": "qwen",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "model": "qwen-plus",
+      "api_key": ""
+    },
+    {
+      "name": "deepseek",
+      "base_url": "https://api.deepseek.com/v1",
+      "model": "deepseek-chat",
+      "api_key": ""
+    },
+    {
+      "name": "openai",
+      "base_url": "https://api.openai.com/v1",
+      "model": "gpt-4o-mini",
+      "api_key": ""
+    },
+    {
+      "name": "ollama",
+      "base_url": "http://127.0.0.1:11434/v1",
+      "model": "qwen2.5:7b",
+      "api_key": "",
+      "local": true,
+      "disabled": true
+    }
+  ]
+}
