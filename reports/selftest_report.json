@@ -1,0 +1,34 @@
+{
+  "mode": "mock（本地端点，未调用外部模型）",
+  "passed": 5,
+  "total": 5,
+  "all_pass": true,
+  "details": [
+    {
+      "case": "单服务商正常返回并解析 JSON",
+      "pass": true,
+      "detail": "provider=mock-ok, 35ms"
+    },
+    {
+      "case": "首服务商 500 时自动切换下一家",
+      "pass": true,
+      "detail": "attempts=2"
+    },
+    {
+      "case": "全部失败返回 None，交由上层降级",
+      "pass": true,
+      "detail": "attempts=2"
+    },
+    {
+      "case": "不支持 json_object 时自动关闭重试",
+      "pass": true,
+      "detail": "json_mode=False"
+    },
+    {
+      "case": "调用日志不含 API Key",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "note": "验证的是接入链路；真实模型效果请配置 Key 后运行 --selftest 或 --eval。"
+}
