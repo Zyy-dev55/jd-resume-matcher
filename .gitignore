@@ -1,0 +1,5 @@
+config.json
+.env
+__pycache__/
+*.pyc
+reports/last_match.json
